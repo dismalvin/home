@@ -201,22 +201,13 @@
   .credits-grid ul{list-style:none; margin:0; padding:0;}
   .credits-grid li{font-size:14.5px; padding:6px 0; color:#2b2820;}
 
-  /* repertoire accordion */
+  /* repertoire groups */
   .rep-group{border-top:1px solid var(--line);}
   .rep-group:last-child{border-bottom:1px solid var(--line);}
-  .rep-group summary{
-    position:relative; cursor:pointer; list-style:none;
-    padding:20px 34px 20px 0; font-family:var(--font-display); font-weight:600; font-size:16.5px;
+  .rep-head{
+    padding:20px 0 12px; font-family:var(--font-display); font-weight:600; font-size:16.5px;
   }
-  .rep-group summary::-webkit-details-marker{display:none;}
-  .rep-group summary .count{font-family:var(--font-accent); font-style:italic; font-weight:400; font-size:14px; color:var(--gray); margin-left:8px;}
-  .rep-group summary::before,.rep-group summary::after{
-    content:""; position:absolute; right:4px; top:50%; background:var(--ink);
-    transition:transform .3s ease, opacity .3s ease;
-  }
-  .rep-group summary::before{width:14px; height:1px; margin-top:0;}
-  .rep-group summary::after{width:1px; height:14px; margin-top:-7px; right:11px;}
-  .rep-group[open] summary::after{transform:rotate(90deg); opacity:0;}
+  .rep-head .count{font-family:var(--font-accent); font-style:italic; font-weight:400; font-size:14px; color:var(--gray); margin-left:8px;}
   .rep-list{list-style:none; margin:0 0 24px; padding:0; max-width:640px;}
   .rep-list li{
     font-size:14px; color:#332f26; padding:9px 0;
@@ -408,38 +399,38 @@
         </div>
 
         <div class="reveal">
-          <details class="rep-group" open>
-            <summary>학술지<span class="count">(2)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">학술지<span class="count">(2)</span></div>
             <ul class="rep-list">
               <li>전쟁시대의 풍자 — 이이자와타다스 &lt;북경의유령&gt;의 이중구조, 『연극포럼』, Korea National University of Arts, 2015, pp.514–527.</li>
               <li>「飯沢匡の政治風刺喜劇『多すぎた札束』における「声」の役割について」『演劇学論叢』第17号、大阪大学大学院文学研究科演劇学研究室、2018年3月、pp.81–98.</li>
             </ul>
-          </details>
+          </div>
 
-          <details class="rep-group">
-            <summary>학위논문<span class="count">(2)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">학위논문<span class="count">(2)</span></div>
             <ul class="rep-list">
               <li>「飯沢匡作品研究」大阪大学大学院文学研究科、2019 (박사학위논문)</li>
               <li>「「笑の大学」研究」大阪大学大学院文学研究科、2013 (석사학위논문)</li>
             </ul>
-          </details>
+          </div>
 
-          <details class="rep-group">
-            <summary>학회 구두 발표<span class="count">(4)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">학회 구두 발표<span class="count">(4)</span></div>
             <ul class="rep-list">
               <li>Satire on the War era – the dual structure of Iizawa Tadasu's Beijing's Ghost, The 3rd Asian Theatre Conference, Shanghai Theatre Academy, 2015.11.6</li>
               <li>The effect of the "voice" in Tadasu Iizawa's political satire comedy Too Many Bundles of money, The 6th International Asian Theatre Studies Conference, 2017.11.25</li>
               <li>飯沢匡『クイズ婆さんの敵』と金大中事件、近現代演劇学科3月例会口頭発表、神戸松蔭女子学院大学、2018.3.3</li>
               <li>A consideration of 'the routinization of politics' from the relationship of the dramatis personae in Tadasu Iizawa's political satire comedy, The Enemy of Quiz Grandmother, The 6th International Asian Theatre Studies Conference, Taipei National University of the Arts, 2018.11.2</li>
             </ul>
-          </details>
+          </div>
 
-          <details class="rep-group">
-            <summary>역서<span class="count">(1)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">역서<span class="count">(1)</span></div>
             <ul class="rep-list">
               <li>기타무라 소 「호기우타」, 지만지드라마, 2024</li>
             </ul>
-          </details>
+          </div>
         </div>
       </div>
     </div>
@@ -455,8 +446,8 @@
         </div>
 
         <div class="reveal">
-          <details class="rep-group" open>
-            <summary>리뷰 게재<span class="count">(24)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">리뷰 게재<span class="count">(24)</span></div>
             <div class="year-head">2026</div>
             <ul class="rep-list">
               <li>&lt;H를 위하여&gt;, 공연과이론</li>
@@ -499,10 +490,10 @@
             <ul class="rep-list">
               <li>월례비평 이론발제 &lt;조치원 – 새가 이르는 곳&gt;, 공연과이론</li>
             </ul>
-          </details>
+          </div>
 
-          <details class="rep-group">
-            <summary>기타 게재<span class="count">(7)</span></summary>
+          <div class="rep-group">
+            <div class="rep-head">기타 게재<span class="count">(7)</span></div>
             <ul class="rep-list">
               <li>드라마투르그노트 — &lt;유리동물원&gt;, 공연과이론, 2025</li>
               <li>인터뷰 — 연출가 최원종, 공연과이론, 2024</li>
@@ -512,7 +503,7 @@
               <li>인터뷰 — 연출가 하수민, 공연과이론, 2021</li>
               <li>연습실탐방 &lt;양갈래머리와 아이엠에프&gt;, 공연과이론, 2021</li>
             </ul>
-          </details>
+          </div>
 
           <div class="note-block">비평문 원문 PDF 또는 링크는 추후 자료 수령 후 각 항목에 연결 예정입니다.</div>
         </div>
