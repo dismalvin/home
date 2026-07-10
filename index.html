@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김유빈 — Theatre Researcher · Critic · Dramaturg · Translator</title>
+<meta name="description" content="김유빈 — 일본 근현대연극 연구자, 연극평론가, 드라마터그, 번역가. 연구·비평·번역·드라마투르기 포트폴리오.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+  :root{
+    --ink:#15130f;
+    --ink-2:#2a2620;
+    --paper:#f7f4ec;
+    --paper-2:#efeadd;
+    --cream:#f6f2e7;
+    --line: rgba(21,19,15,0.16);
+    --line-dark: rgba(246,242,231,0.22);
+    --gray:#6d675c;
+    --gray-lt:#948d7f;
+    --font-body:'Pretendard Variable','Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-display:'Noto Serif KR', serif;
+    --font-accent:'Cormorant Garamond','EB Garamond', serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-weight:300;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:1000; pointer-events:none;
+    opacity:.035; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:-0.01em;}
+  p{margin:0 0 1em;}
+  a{color:inherit;}
+  ::selection{background:var(--ink); color:var(--paper);}
+
+  .italic-accent{font-family:var(--font-accent); font-style:italic;}
+
+  .wrap{max-width:900px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- top bar (mobile) ---------- */
+  .topbar{
+    display:none;
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    align-items:center; justify-content:space-between;
+    height:56px; padding:0 20px;
+    background:var(--paper); border-bottom:1px solid var(--line);
+  }
+  .topbar .mark{font-family:var(--font-display); font-weight:600; font-size:15px; letter-spacing:.04em;}
+  .nav-toggle-label{
+    width:28px; height:20px; position:relative; cursor:pointer;
+  }
+  .nav-toggle-label span{
+    position:absolute; left:0; right:0; height:1.5px; background:var(--ink);
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .nav-toggle-label span:nth-child(1){top:0;}
+  .nav-toggle-label span:nth-child(2){top:9px;}
+  .nav-toggle-label span:nth-child(3){top:18px;}
+  .nav-toggle-input{display:none;}
+  .nav-toggle-input:checked ~ .topbar .nav-toggle-label span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+  .nav-toggle-input:checked ~ .topbar .nav-toggle-label span:nth-child(2){opacity:0;}
+  .nav-toggle-input:checked ~ .topbar .nav-toggle-label span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+
+  /* ---------- nav ---------- */
+  .site-nav{
+    position:fixed; z-index:150;
+  }
+  .site-nav ul{list-style:none; margin:0; padding:0;}
+  .site-nav a{
+    display:block; text-decoration:none; color:var(--gray);
+    font-family:var(--font-accent); font-style:italic; font-size:15px;
+    letter-spacing:.02em;
+    transition:color .2s ease, padding-left .2s ease;
+  }
+  .site-nav a .idx{font-family:var(--font-body); font-style:normal; font-size:10px; letter-spacing:.12em; display:block; color:var(--gray-lt);}
+  .site-nav a.active,.site-nav a:hover{color:var(--ink); padding-left:6px;}
+
+  @media (min-width:980px){
+    body{padding-left:210px;}
+    .site-nav{top:50%; left:48px; transform:translateY(-50%); width:150px;}
+    .site-nav li{margin-bottom:16px;}
+    .topbar{display:none !important;}
+  }
+
+  @media (max-width:979px){
+    body{padding-top:56px;}
+    .topbar{display:flex;}
+    .site-nav{
+      top:56px; left:0; right:0; bottom:0;
+      background:var(--ink); color:var(--cream);
+      padding:48px 32px; overflow-y:auto;
+      transform:translateX(100%);
+      transition:transform .35s cubic-bezier(.65,0,.35,1);
+    }
+    .site-nav ul{display:flex; flex-direction:column; gap:22px;}
+    .site-nav a{color:var(--gray-lt); font-size:22px;}
+    .site-nav a .idx{color:var(--gray-lt); opacity:.6;}
+    .site-nav a.active,.site-nav a:hover{color:var(--cream);}
+    .nav-toggle-input:checked ~ .site-nav{transform:translateX(0);}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:var(--ink); color:var(--cream);
+    min-height:92vh; display:flex; align-items:center;
+    padding:120px 0 80px;
+  }
+  .hero .wrap{position:relative; z-index:3; width:100%;}
+  .hero-tag{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gray-lt); margin-bottom:70px;
+  }
+  .hero-grid{display:grid; grid-template-columns:1fr 220px; gap:48px; align-items:end;}
+  .hero h1{font-size:clamp(46px,7vw,84px); line-height:1; color:var(--cream); margin-bottom:22px;}
+  .hero-roles-kr{font-size:16px; color:var(--gray-lt); margin-bottom:14px; letter-spacing:.01em;}
+  .hero-roles-en{font-family:var(--font-accent); font-style:italic; font-size:19px; color:#cfc8b7; line-height:1.5; margin-bottom:26px;}
+  .hero-tagline{max-width:420px; font-size:15px; color:#cbc4b3; font-weight:300;}
+
+  .kanji-watermark{
+    position:absolute; right:-3vw; top:50%; transform:translateY(-50%);
+    font-family:var(--font-display); font-size:52vw; line-height:1;
+    color:var(--cream); opacity:.05; z-index:1; pointer-events:none; user-select:none;
+  }
+
+  .portrait-frame{
+    position:relative; z-index:3;
+    width:100%; aspect-ratio:3/4;
+    border:1px solid var(--line-dark);
+    display:flex; align-items:center; justify-content:center;
+    padding:6px;
+  }
+  .portrait-frame .inner{
+    width:100%; height:100%; border:1px solid var(--line-dark);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  }
+  .portrait-frame svg{width:52px; height:70px; color:#8f8874; opacity:.85;}
+  .portrait-frame .cap{
+    font-family:var(--font-accent); font-style:italic; font-size:11px;
+    letter-spacing:.14em; color:var(--gray-lt); text-transform:uppercase;
+  }
+  @media (max-width:979px){
+    .hero-grid{grid-template-columns:1fr; }
+    .portrait-frame{width:150px; margin-top:36px;}
+    .kanji-watermark{font-size:80vw; opacity:.045;}
+  }
+
+  /* curtain hem divider */
+  .curtain-hem{
+    height:26px;
+    background:
+      linear-gradient(135deg, var(--ink) 50%, transparent 50%),
+      linear-gradient(45deg, var(--ink) 50%, transparent 50%);
+    background-size:26px 26px;
+    background-position:0 0, 13px 0;
+    background-repeat:repeat-x;
+    background-color:var(--paper);
+  }
+
+  /* ---------- scene sections ---------- */
+  .scene{padding:96px 0; border-bottom:1px solid var(--line);}
+  .scene.alt{background:var(--paper-2);}
+  .scene .wrap{display:grid; grid-template-columns:88px minmax(0,1fr); gap:28px; align-items:start;}
+  .scene-num{
+    font-family:var(--font-accent); font-style:italic; color:var(--gray);
+    font-size:13px; letter-spacing:.18em; padding-top:6px;
+  }
+  @media (min-width:720px){
+    .scene-num{writing-mode:vertical-rl; text-orientation:mixed;}
+  }
+  .scene-head{margin-bottom:40px;}
+  .scene-head h2{font-size:30px; margin-bottom:6px;}
+  .scene-head .en{font-family:var(--font-accent); font-style:italic; font-size:15px; color:var(--gray); letter-spacing:.02em;}
+  .prose{max-width:620px; font-size:15.5px; font-weight:300; color:#2b2820;}
+
+  .tag-line{font-size:14.5px; color:#2b2820;}
+  .tag-line span{display:inline-block;}
+  .tag-line span:not(:last-child)::after{content:"·"; margin:0 12px; color:var(--gray-lt);}
+
+  .credits-grid{display:grid; grid-template-columns:1fr; gap:32px; max-width:620px;}
+  .credits-grid h3{
+    font-family:var(--font-body); font-weight:500; font-size:11px;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--gray);
+    padding-bottom:10px; margin-bottom:16px; border-bottom:1px solid var(--line);
+  }
+  .credits-grid ul{list-style:none; margin:0; padding:0;}
+  .credits-grid li{font-size:14.5px; padding:6px 0; color:#2b2820;}
+
+  /* repertoire accordion */
+  .rep-group{border-top:1px solid var(--line);}
+  .rep-group:last-child{border-bottom:1px solid var(--line);}
+  .rep-group summary{
+    position:relative; cursor:pointer; list-style:none;
+    padding:20px 34px 20px 0; font-family:var(--font-display); font-weight:600; font-size:16.5px;
+  }
+  .rep-group summary::-webkit-details-marker{display:none;}
+  .rep-group summary .count{font-family:var(--font-accent); font-style:italic; font-weight:400; font-size:14px; color:var(--gray); margin-left:8px;}
+  .rep-group summary::before,.rep-group summary::after{
+    content:""; position:absolute; right:4px; top:50%; background:var(--ink);
+    transition:transform .3s ease, opacity .3s ease;
+  }
+  .rep-group summary::before{width:14px; height:1px; margin-top:0;}
+  .rep-group summary::after{width:1px; height:14px; margin-top:-7px; right:11px;}
+  .rep-group[open] summary::after{transform:rotate(90deg); opacity:0;}
+  .rep-list{list-style:none; margin:0 0 24px; padding:0; max-width:640px;}
+  .rep-list li{
+    font-size:14px; color:#332f26; padding:9px 0;
+    border-bottom:1px dotted var(--line);
+    line-height:1.65;
+  }
+  .rep-list li:last-child{border-bottom:none;}
+  .year-head{
+    font-family:var(--font-accent); font-style:italic; font-size:13px;
+    color:var(--gray); letter-spacing:.08em; margin:18px 0 4px;
+  }
+  .year-head:first-child{margin-top:4px;}
+
+  .note-block{
+    margin-top:20px; padding:16px 18px; border:1px solid var(--line);
+    font-size:12.5px; color:var(--gray); max-width:600px;
+  }
+
+  /* single column lists */
+  .split{display:grid; grid-template-columns:1fr; gap:32px; max-width:640px;}
+  .split h3{font-family:var(--font-body); font-weight:500; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gray); padding-bottom:10px; margin-bottom:16px; border-bottom:1px solid var(--line);}
+  .split ul{list-style:none; margin:0; padding:0;}
+  .split li{font-size:14px; padding:6px 0; color:#2b2820;}
+
+  /* contact / curtain call */
+  .curtain-call{background:var(--ink); color:var(--cream);}
+  .curtain-call .scene-num{color:var(--gray-lt);}
+  .curtain-call .scene-head .en{color:var(--gray-lt);}
+  .curtain-call .prose{color:#d8d2c2;}
+  .contact-list{list-style:none; margin:28px 0; padding:0;}
+  .contact-list li{padding:14px 0; border-bottom:1px solid var(--line-dark); font-size:15px;}
+  .contact-list a{text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s ease;}
+  .contact-list a:hover{border-color:currentColor;}
+  .contact-list .label{display:block; font-family:var(--font-accent); font-style:italic; font-size:12px; color:var(--gray-lt); margin-bottom:4px;}
+
+  .hanko{
+    width:44px; height:44px; background:var(--cream); color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:18px; transform:rotate(-4deg);
+    margin-top:36px;
+  }
+  .curtain-mark{
+    margin-top:56px; font-family:var(--font-accent); font-style:italic;
+    letter-spacing:.3em; font-size:13px; color:var(--gray-lt);
+  }
+
+  footer{background:var(--ink); color:var(--gray-lt); font-size:12px; padding:28px 0; text-align:center; letter-spacing:.04em;}
+
+  /* reveal */
+  .js-ready .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease;}
+  .js-ready .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .js-ready .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  section[id]{scroll-margin-top:90px;}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="navToggle" class="nav-toggle-input">
+
+<div class="topbar">
+  <span class="mark">김유빈</span>
+  <label for="navToggle" class="nav-toggle-label" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </label>
+</div>
+
+<nav class="site-nav" id="siteNav">
+  <ul>
+    <li><a href="#about" data-target="about"><span class="idx">SCENE 01</span>About</a></li>
+    <li><a href="#research" data-target="research"><span class="idx">SCENE 02</span>Research</a></li>
+    <li><a href="#career" data-target="career"><span class="idx">SCENE 03</span>Career</a></li>
+    <li><a href="#publications" data-target="publications"><span class="idx">SCENE 04</span>Publications</a></li>
+    <li><a href="#criticism" data-target="criticism"><span class="idx">SCENE 05</span>Criticism</a></li>
+    <li><a href="#translation" data-target="translation"><span class="idx">SCENE 06</span>Translation</a></li>
+    <li><a href="#activities" data-target="activities"><span class="idx">SCENE 07</span>Activities</a></li>
+    <li><a href="#current" data-target="current"><span class="idx">SCENE 08</span>Current</a></li>
+    <li><a href="#contact" data-target="contact"><span class="idx">SCENE 09</span>Curtain Call</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="hero" id="top">
+    <span class="kanji-watermark" aria-hidden="true">劇</span>
+    <div class="wrap">
+      <div class="hero-tag">
+        <span>Programme</span>
+        <span>2026 Season</span>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <h1>김유빈</h1>
+          <div class="hero-roles-kr">연극연구자 · 연극평론가 · 드라마터그 · 번역가</div>
+          <div class="hero-roles-en">Researcher of Modern Japanese Theatre<br>Theatre Critic · Dramaturg · Translator</div>
+          <p class="hero-tagline">일본 근현대연극 연구를 기반으로 비평, 번역, 드라마투르기 작업을 수행하고 있습니다.</p>
+        </div>
+        <div class="portrait-frame">
+          <div class="inner">
+            <svg viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="1.1">
+              <ellipse cx="60" cy="80" rx="38" ry="58"/>
+              <path d="M38 68 Q46 62 54 68"/>
+              <path d="M66 68 Q74 62 82 68"/>
+              <path d="M52 100 Q60 106 68 100"/>
+              <line x1="60" y1="45" x2="60" y2="55"/>
+            </svg>
+            <span class="cap">Photograph<br>to follow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="curtain-hem" aria-hidden="true"></div>
+
+  <section id="about" class="scene">
+    <div class="wrap">
+      <div class="scene-num">Scene 01</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>소개</h2>
+          <div class="en">About</div>
+        </div>
+        <p class="prose reveal">고려대학교에서 고고미술사학과 일어일문학을 전공한 후 일본으로 건너가 오사카대학 대학원 문학연구과에서 일본 근현대 희곡 연구로 석사 및 박사학위를 취득했다. 귀국 후 연극평론가, 드라마터그, 번역가로 활동하며 한일 연극 교류와 공연예술 연구에 힘쓰고 있다. 현재 공연과이론을위한모임 연구분과장 및 편집위원, 한일연극교류협의회 운영위원으로 활동 중이다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="scene alt">
+    <div class="wrap">
+      <div class="scene-num">Scene 02</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>연구 분야</h2>
+          <div class="en">Research</div>
+        </div>
+        <p class="tag-line reveal">
+          <span>일본 근현대연극</span>
+          <span>일본 근현대희곡</span>
+          <span>한일 연극 교류</span>
+          <span>코로나19 이후 공연예술의 변화</span>
+          <span>디지털 공연과 가상극장</span>
+          <span>동아시아 현대연극</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="career" class="scene">
+    <div class="wrap">
+      <div class="scene-num">Scene 03</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>학력 & 활동</h2>
+          <div class="en">Education &amp; Positions</div>
+        </div>
+        <div class="credits-grid reveal">
+          <div>
+            <h3>Education</h3>
+            <ul>
+              <li>오사카대학 대학원 문학연구과 — 문학박사(연극학)</li>
+              <li>오사카대학 대학원 문학연구과 — 문학석사(연극학)</li>
+              <li>고려대학교 — 고고미술사학 전공 / 일어일문학 부전공</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Positions</h3>
+            <ul>
+              <li>공연과이론을위한모임 연구분과장</li>
+              <li>&lt;공연과이론&gt; 편집위원</li>
+              <li>한일연극교류협의회 운영위원</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="scene alt">
+    <div class="wrap">
+      <div class="scene-num">Scene 04</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>출판</h2>
+          <div class="en">Publications</div>
+        </div>
+
+        <div class="reveal">
+          <details class="rep-group" open>
+            <summary>학술지<span class="count">(2)</span></summary>
+            <ul class="rep-list">
+              <li>전쟁시대의 풍자 — 이이자와타다스 &lt;북경의유령&gt;의 이중구조, 『연극포럼』, Korea National University of Arts, 2015, pp.514–527.</li>
+              <li>「飯沢匡の政治風刺喜劇『多すぎた札束』における「声」の役割について」『演劇学論叢』第17号、大阪大学大学院文学研究科演劇学研究室、2018年3月、pp.81–98.</li>
+            </ul>
+          </details>
+
+          <details class="rep-group">
+            <summary>학위논문<span class="count">(2)</span></summary>
+            <ul class="rep-list">
+              <li>「飯沢匡作品研究」大阪大学大学院文学研究科、2019 (박사학위논문)</li>
+              <li>「「笑の大学」研究」大阪大学大学院文学研究科、2013 (석사학위논문)</li>
+            </ul>
+          </details>
+
+          <details class="rep-group">
+            <summary>학회 구두 발표<span class="count">(4)</span></summary>
+            <ul class="rep-list">
+              <li>Satire on the War era – the dual structure of Iizawa Tadasu's Beijing's Ghost, The 3rd Asian Theatre Conference, Shanghai Theatre Academy, 2015.11.6</li>
+              <li>The effect of the "voice" in Tadasu Iizawa's political satire comedy Too Many Bundles of money, The 6th International Asian Theatre Studies Conference, 2017.11.25</li>
+              <li>飯沢匡『クイズ婆さんの敵』と金大中事件、近現代演劇学科3月例会口頭発表、神戸松蔭女子学院大学、2018.3.3</li>
+              <li>A consideration of 'the routinization of politics' from the relationship of the dramatis personae in Tadasu Iizawa's political satire comedy, The Enemy of Quiz Grandmother, The 6th International Asian Theatre Studies Conference, Taipei National University of the Arts, 2018.11.2</li>
+            </ul>
+          </details>
+
+          <details class="rep-group">
+            <summary>역서<span class="count">(1)</span></summary>
+            <ul class="rep-list">
+              <li>기타무라 소 「호기우타」, 지만지드라마, 2024</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="criticism" class="scene">
+    <div class="wrap">
+      <div class="scene-num">Scene 05</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>비평</h2>
+          <div class="en">Criticism</div>
+        </div>
+
+        <div class="reveal">
+          <details class="rep-group" open>
+            <summary>리뷰 게재<span class="count">(24)</span></summary>
+            <div class="year-head">2026</div>
+            <ul class="rep-list">
+              <li>&lt;H를 위하여&gt;, 공연과이론</li>
+              <li>&lt;김치찌개 웨스턴&gt;, 오늘의서울연극</li>
+              <li>&lt;ブカブカジョーシブカジョーシ&gt;, 공연과이론</li>
+              <li>월례비평 이론발제 &lt;하얀 충동&gt;, 공연과이론</li>
+            </ul>
+            <div class="year-head">2025</div>
+            <ul class="rep-list">
+              <li>&lt;어쩌다 보니&gt; (문화체육관광부 지역 비평 지원사업), 공연과이론</li>
+              <li>&lt;극장의 도로시&gt; 과정비평 프로젝트, 한국문화예술위원회 블로그</li>
+              <li>&lt;장소&gt;, 공연과이론</li>
+              <li>&lt;타인&gt;, 한국연극 8월호</li>
+              <li>&lt;그의 어머니&gt;, 공연과이론</li>
+            </ul>
+            <div class="year-head">2024</div>
+            <ul class="rep-list">
+              <li>&lt;멸망의 로맨스&gt;, 오늘의 서울연극</li>
+              <li>&lt;오함마백씨행장 완판본&gt;, 공연과이론</li>
+              <li>베세토 페스티벌 리뷰 &lt;판 PAN&gt;&lt;나의 한평생&gt;&lt;나라야마부시코&gt;&lt;주얼단&gt;&lt;부동산 오브 슈퍼맨 2024&gt;, 한국연극 11월호</li>
+              <li>&lt;약속의 아이&gt;, 공연예술창작주체 비평가매칭, 한국문화예술위원회</li>
+              <li>&lt;부동산 오브 슈퍼맨 2024&gt;, 공연예술창작주체 비평가매칭, 한국문화예술위원회 블로그</li>
+              <li>&lt;햄릿&gt;, 오늘의 서울연극</li>
+              <li>&lt;통속소설이 머 어때서?&gt;, 공연과이론</li>
+              <li>&lt;출입국사무소의 오이디푸스&gt;, 공연과이론</li>
+              <li>&lt;비와 고양이와 몇 개의 거짓말&gt;, 공연과이론</li>
+            </ul>
+            <div class="year-head">2023</div>
+            <ul class="rep-list">
+              <li>월례비평 이론발제 &lt;그녀를 용서할 수 있을까?&gt;, 공연과이론</li>
+              <li>&lt;오슬로에서 온 남자&gt;, 공연과이론</li>
+            </ul>
+            <div class="year-head">2022</div>
+            <ul class="rep-list">
+              <li>&lt;판다는 경부고속도로를 달릴 수 없다&gt;, 공연과이론</li>
+              <li>&lt;기후비상사태:리허설&gt;, 공연과이론</li>
+              <li>&lt;탈피&gt;, 공연과이론</li>
+            </ul>
+            <div class="year-head">2021</div>
+            <ul class="rep-list">
+              <li>월례비평 이론발제 &lt;조치원 – 새가 이르는 곳&gt;, 공연과이론</li>
+            </ul>
+          </details>
+
+          <details class="rep-group">
+            <summary>기타 게재<span class="count">(7)</span></summary>
+            <ul class="rep-list">
+              <li>드라마투르그노트 — &lt;유리동물원&gt;, 공연과이론, 2025</li>
+              <li>인터뷰 — 연출가 최원종, 공연과이론, 2024</li>
+              <li>기획특집 — 희곡 번역, 수많은 고민, 공연과이론, 2024</li>
+              <li>기획연재 — 일본 현대 연극의 정전, 공연과이론, 2023</li>
+              <li>드라마투르그노트 &lt;레밍-세계의 끝까지 데려가 줘&gt;, 공연과이론, 2023</li>
+              <li>인터뷰 — 연출가 하수민, 공연과이론, 2021</li>
+              <li>연습실탐방 &lt;양갈래머리와 아이엠에프&gt;, 공연과이론, 2021</li>
+            </ul>
+          </details>
+
+          <div class="note-block">비평문 원문 PDF 또는 링크는 추후 자료 수령 후 각 항목에 연결 예정입니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="translation" class="scene alt">
+    <div class="wrap">
+      <div class="scene-num">Scene 06</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>번역</h2>
+          <div class="en">Translation</div>
+        </div>
+        <div class="split reveal">
+          <div>
+            <h3>번역 게재</h3>
+            <ul>
+              <li>『연극평론』 2023년 여름호 · 2024년 가을호 · 2026년 봄호</li>
+              <li>『한국연극』 일본연극 기사, 3·6·9·12월호 (2022년~)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>번역 공연</h3>
+            <ul>
+              <li>데라야마 슈지 &lt;레밍 – 세계의 끝까지 데려가 줘-&gt;</li>
+              <li>기시다 구니오 &lt;목숨을 가지고 노는 두 남자&gt;</li>
+              <li>미시마 유키오 &lt;유야&gt;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities" class="scene">
+    <div class="wrap">
+      <div class="scene-num">Scene 07</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>심사 &amp; 드라마투르그</h2>
+          <div class="en">Critic &amp; Dramaturgy</div>
+        </div>
+        <div class="split reveal">
+          <div>
+            <h3>Critic</h3>
+            <ul>
+              <li>2026 서울연극제 자유경연작 심사위원</li>
+              <li>2025 한국문화예술위원회 과정비평 프로젝트 &lt;극장의 도로시&gt;</li>
+              <li>2025 서울연극제 합평회 발제 &lt;장소&gt;</li>
+              <li>2024 미래연극제 합평회 발제 &lt;오함마백씨행장 완판본&gt;</li>
+              <li>2024 서울연극제 합평회 발제 &lt;통속소설이 머 어때서?&gt;</li>
+              <li>2024 공연예술창작주체 비평가 매칭 &lt;부동산 오브 슈퍼맨 2024&gt;, &lt;약속의 아이&gt;</li>
+              <li>2023·2022 창작공간연극축제 합평회 발제</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Dramaturgy</h3>
+            <ul>
+              <li>2026 신춘문예페스티벌 &lt;항해사&gt;</li>
+              <li>2025 베세토 연극제(일본) 한중일 합작연극 &lt;유리 동물원&gt;</li>
+              <li>2025 신춘문예페스티벌 &lt;낯선 인연&gt;</li>
+              <li>2024 신춘문예페스티벌 &lt;묘전&gt;</li>
+              <li>2023 극단 세즈헤브 &lt;레밍-세계의 끝까지 데려가 줘&gt;</li>
+              <li>2022 부천판타스틱연극제·이타바시뷰네연극제(일본), 극단 세즈헤브 &lt;내부&gt;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="current" class="scene alt">
+    <div class="wrap">
+      <div class="scene-num">Scene 08</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>진행 중 프로젝트</h2>
+          <div class="en">Current Projects</div>
+        </div>
+        <ul class="split reveal" style="display:block; max-width:520px;">
+          <li>코로나19 팬데믹 이후 일본 연극 연구 — 현지조사 · 인터뷰 · 논문 집필</li>
+          <li style="margin-top:8px;">진행 중 번역</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="scene curtain-call">
+    <div class="wrap">
+      <div class="scene-num">Scene 09</div>
+      <div>
+        <div class="scene-head reveal">
+          <h2>커튼콜</h2>
+          <div class="en">Curtain Call — Contact</div>
+        </div>
+        <p class="prose reveal">연구, 비평, 번역, 드라마투르기에 관한 협업 제안을 기다립니다.</p>
+        <ul class="contact-list reveal">
+          <li><span class="label">Email</span><a href="mailto:dismalvin@gmail.com">dismalvin@gmail.com</a></li>
+          <li><span class="label">Google Scholar</span><a href="https://scholar.google.com/citations?hl=ko&user=vtvD5FYAAAAJ" target="_blank" rel="noopener">scholar.google.com/citations</a></li>
+        </ul>
+        <div class="hanko" aria-hidden="true">印</div>
+        <div class="curtain-mark">— 幕 —</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>KIM YUBIN — PORTFOLIO 2026</footer>
+
+<script>
+  document.documentElement.classList.add('js-ready');
+
+  // close mobile nav on link click
+  var navToggle = document.getElementById('navToggle');
+  document.querySelectorAll('.site-nav a').forEach(function(a){
+    a.addEventListener('click', function(){ if(navToggle) navToggle.checked = false; });
+  });
+
+  // active nav + reveal on scroll
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.site-nav a');
+  var reveals = document.querySelectorAll('.reveal');
+
+  var navObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        navLinks.forEach(function(l){ l.classList.remove('active'); });
+        var link = document.querySelector('.site-nav a[data-target="'+entry.target.id+'"]');
+        if(link) link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  sections.forEach(function(s){ navObserver.observe(s); });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15});
+  reveals.forEach(function(r){ revealObserver.observe(r); });
+</script>
+
+</body>
+</html>
