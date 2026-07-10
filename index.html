@@ -97,7 +97,8 @@
   }
 
   @media (max-width:979px){
-    body{padding-top:56px;}
+    body{padding-left:0; padding-top:56px;}
+    .wrap{padding:0 20px;}
     .topbar{display:flex;}
     .site-nav{
       top:56px; left:0; right:0; bottom:0;
@@ -111,6 +112,27 @@
     .site-nav a .idx{color:var(--gray-lt); opacity:.6;}
     .site-nav a.active,.site-nav a:hover{color:var(--cream);}
     .nav-toggle-input:checked ~ .site-nav{transform:translateX(0);}
+
+    .scene{padding:64px 0;}
+    .scene .wrap{grid-template-columns:1fr; gap:10px;}
+    .scene-num{
+      writing-mode:horizontal-tb; text-orientation:mixed;
+      padding-top:0; margin-bottom:4px;
+    }
+    .scene-head{margin-bottom:28px;}
+    .scene-head h2{font-size:26px;}
+    .prose,.credits-grid,.split,.rep-list,.note-block,.tag-line{max-width:100%;}
+    .tag-line span{display:block; margin-bottom:2px;}
+    .tag-line span:not(:last-child)::after{content:none;}
+    .hero{padding:80px 0 60px; min-height:auto;}
+    .hero-tag{margin-bottom:40px;}
+  }
+
+  @media (max-width:480px){
+    .wrap{padding:0 16px;}
+    .scene-head h2{font-size:24px;}
+    .rep-head{font-size:15px;}
+    .rep-list li,.split li,.credits-grid li{font-size:14px;}
   }
 
   /* ---------- hero ---------- */
@@ -155,9 +177,11 @@
     letter-spacing:.14em; color:var(--gray-lt); text-transform:uppercase;
   }
   @media (max-width:979px){
-    .hero-grid{grid-template-columns:1fr; }
+    .hero-grid{grid-template-columns:1fr;}
     .portrait-frame{width:150px; margin-top:36px;}
     .kanji-watermark{font-size:80vw; opacity:.045;}
+    .hero h1{font-size:clamp(40px,12vw,64px);}
+    .hero-roles-en{font-size:17px;}
   }
 
   /* curtain hem divider */
